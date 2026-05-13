@@ -169,6 +169,7 @@ First-time CMS setup:
 Content editing notes:
 
 - Room and package image paths should point to files under `public/images`.
+- The Settings editor can upload or replace the public website logo without code changes.
 - Admin image uploads go to Supabase Storage and automatically insert the public URL into the image field.
 - Uploads accept JPG, PNG, WebP, and AVIF images up to 8 MB.
 - Drag images onto an image field or use **Upload or replace**.
@@ -346,6 +347,7 @@ The detail page is generated automatically at `/surf-packages/[slug]`.
 Open `src/content/site.ts` and edit:
 
 - `email`
+- `logoImage`
 - `whatsapp.display`
 - `whatsapp.e164`
 - `whatsapp.defaultMessage`

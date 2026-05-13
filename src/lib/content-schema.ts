@@ -110,6 +110,10 @@ export const editableSiteContentSchema = z.object({
     latitude: z.coerce.number(),
     longitude: z.coerce.number(),
   }),
+  logoImage: contentImageSchema.optional().default({
+    src: "/images/brand/tifawave-logo.svg",
+    alt: "Tifawave Surf Stay logo",
+  }),
   heroImage: contentImageSchema,
   policies: z
     .array(

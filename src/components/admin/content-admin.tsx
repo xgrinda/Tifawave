@@ -759,6 +759,14 @@ function SettingsEditor({
         <Input label="Short name" value={value.shortName} onChange={(shortName) => onChange({ ...value, shortName })} />
         <Input label="Location" value={value.location} onChange={(location) => onChange({ ...value, location })} />
         <Textarea label="Tagline" value={value.tagline} onChange={(tagline) => onChange({ ...value, tagline })} />
+        <div className="md:col-span-2">
+          <ImageManager
+            title="Website logo"
+            image={value.logoImage}
+            section="branding"
+            onChange={(logoImage) => onChange({ ...value, logoImage })}
+          />
+        </div>
       </EditorPanel>
 
       <EditorPanel title="Contact" description="Guest-facing email, WhatsApp, address, and maps.">

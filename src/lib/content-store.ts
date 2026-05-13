@@ -71,6 +71,10 @@ export async function getSiteContent() {
       ...fallbackSiteContent.coordinates,
       ...editable.coordinates,
     },
+    logoImage: {
+      ...fallbackSiteContent.logoImage,
+      ...editable.logoImage,
+    },
     heroImage: {
       ...fallbackSiteContent.heroImage,
       ...editable.heroImage,

@@ -87,6 +87,7 @@ export type SiteContent = {
     latitude: number;
     longitude: number;
   };
+  logoImage: ContentImage;
   heroImage: ContentImage;
   policies: {
     title: string;

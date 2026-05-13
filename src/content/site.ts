@@ -44,6 +44,10 @@ export const siteContent = {
     latitude: 30.511,
     longitude: -9.681,
   },
+  logoImage: {
+    src: "/images/brand/tifawave-logo.svg",
+    alt: "Tifawave Surf Stay logo",
+  },
   heroImage: {
     src: "/images/hero/hero-atlantic-surf-morocco.jpg",
     alt: "Surfers walking toward Atlantic waves near Tamraght",
