@@ -15,6 +15,7 @@ import {
   serializeJsonLd,
   siteUrl,
 } from "@/lib/seo";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -97,6 +98,7 @@ export default async function RootLayout({
           surfPackages={publishedPackages}
         />
         <WhatsAppFloating site={editableSiteContent} />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
