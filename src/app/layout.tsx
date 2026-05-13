@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { WhatsAppFloating } from "@/components/layout/whatsapp-floating";
@@ -97,6 +98,7 @@ export default async function RootLayout({
           surfPackages={publishedPackages}
         />
         <WhatsAppFloating site={editableSiteContent} />
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
