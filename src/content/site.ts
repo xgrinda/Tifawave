@@ -45,7 +45,7 @@ export const siteContent = {
     longitude: -9.681,
   },
   heroImage: {
-    src: "/images/hero/hero-main.svg",
+    src: "/images/hero/hero-atlantic-surf-morocco.jpg",
     alt: "Surfers walking toward Atlantic waves near Tamraght",
   },
   policies: [

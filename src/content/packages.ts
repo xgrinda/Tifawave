@@ -26,21 +26,21 @@ export const surfPackages = [
     ],
     images: [
       {
-        src: "/images/packages/stay-only.svg",
-        alt: "Warm hostel interior prepared for a relaxed Tamraght stay",
+        src: "/images/packages/stay-only-morocco-coast.jpg",
+        alt: "Calm Moroccan Atlantic waves for a flexible Tamraght stay",
       },
       {
-        src: "/images/packages/stay-only.svg",
-        alt: "Moroccan architecture and travel atmosphere in Tamraght",
+        src: "/images/about/about-morocco-surf-coast.jpg",
+        alt: "Sunset surf coastline in Morocco near a relaxed travel base",
       },
       {
-        src: "/images/packages/stay-only.svg",
-        alt: "Atlantic shoreline near Tamraght in soft evening light",
+        src: "/images/hero/hero-atlantic-surf-morocco.jpg",
+        alt: "Surfers sharing mellow Atlantic waves near the Moroccan coast",
       },
     ],
     featuredImage: {
-      src: "/images/packages/stay-only.svg",
-      alt: "Warm hostel interior prepared for a relaxed Tamraght stay",
+      src: "/images/packages/stay-only-morocco-coast.jpg",
+      alt: "Calm Moroccan Atlantic waves for a flexible Tamraght stay",
     },
     available: true,
     bookingCtaText: "Request stay only",
@@ -70,21 +70,21 @@ export const surfPackages = [
     ],
     images: [
       {
-        src: "/images/packages/beginner-surf-lesson-package.svg",
-        alt: "Soft Atlantic beach conditions suited to beginner surf lessons",
+        src: "/images/packages/beginner-surfboards-taghazout.jpg",
+        alt: "Colorful beginner surfboards ready for lessons in Taghazout",
       },
       {
-        src: "/images/packages/beginner-surf-lesson-package.svg",
-        alt: "Surf travelers walking toward the water with boards",
+        src: "/images/packages/surf-camp-imsouane-lineup.jpg",
+        alt: "Beginner-friendly surf lineup on the Moroccan Atlantic coast",
       },
       {
-        src: "/images/packages/beginner-surf-lesson-package.svg",
+        src: "/images/hero/hero-atlantic-surf-morocco.jpg",
         alt: "Beginner surf preparation on the beach before a session",
       },
     ],
     featuredImage: {
-      src: "/images/packages/beginner-surf-lesson-package.svg",
-      alt: "Soft Atlantic beach conditions suited to beginner surf lessons",
+      src: "/images/packages/beginner-surfboards-taghazout.jpg",
+      alt: "Colorful beginner surfboards ready for lessons in Taghazout",
     },
     available: true,
     bookingCtaText: "Request beginner lessons",
@@ -114,21 +114,21 @@ export const surfPackages = [
     ],
     images: [
       {
-        src: "/images/packages/surf-camp-package.svg",
-        alt: "Surf camp guests walking toward the Atlantic in Tamraght",
+        src: "/images/packages/surf-camp-imsouane-lineup.jpg",
+        alt: "Surf camp guests sharing waves on the Moroccan Atlantic coast",
       },
       {
-        src: "/images/packages/surf-camp-package.svg",
+        src: "/images/hero/hero-atlantic-surf-morocco.jpg",
         alt: "Evening Atlantic coast after a surf camp day",
       },
       {
-        src: "/images/packages/surf-camp-package.svg",
+        src: "/images/packages/group-surf-session.jpg",
         alt: "Surfer moving along a clean wave during coached surf travel",
       },
     ],
     featuredImage: {
-      src: "/images/packages/surf-camp-package.svg",
-      alt: "Surf camp guests walking toward the Atlantic in Tamraght",
+      src: "/images/packages/surf-camp-imsouane-lineup.jpg",
+      alt: "Surf camp guests sharing waves on the Moroccan Atlantic coast",
     },
     available: true,
     bookingCtaText: "Request surf camp",
@@ -158,21 +158,21 @@ export const surfPackages = [
     ],
     images: [
       {
-        src: "/images/packages/surf-yoga-package.svg",
-        alt: "Calm yoga setup for a surf and wellness stay",
+        src: "/images/packages/surf-yoga-morocco.jpg",
+        alt: "Beachside yoga session overlooking the Moroccan Atlantic",
       },
       {
-        src: "/images/packages/surf-yoga-package.svg",
+        src: "/images/packages/stay-only-morocco-coast.jpg",
         alt: "Gentle yoga practice during a travel retreat",
       },
       {
-        src: "/images/packages/surf-yoga-package.svg",
+        src: "/images/about/about-morocco-surf-coast.jpg",
         alt: "Ocean shoreline that frames a surf and yoga holiday",
       },
     ],
     featuredImage: {
-      src: "/images/packages/surf-yoga-package.svg",
-      alt: "Calm yoga setup for a surf and wellness stay",
+      src: "/images/packages/surf-yoga-morocco.jpg",
+      alt: "Beachside yoga session overlooking the Moroccan Atlantic",
     },
     available: true,
     bookingCtaText: "Request surf and yoga",
@@ -202,21 +202,21 @@ export const surfPackages = [
     ],
     images: [
       {
-        src: "/images/packages/group-surf-package.svg",
-        alt: "Surf travelers gathering by the water before a group session",
+        src: "/images/packages/group-surf-session.jpg",
+        alt: "Group of surfers waiting together for waves before a session",
       },
       {
-        src: "/images/packages/group-surf-package.svg",
+        src: "/images/packages/surf-camp-imsouane-lineup.jpg",
         alt: "Coastal view suited to group surf travel in Morocco",
       },
       {
-        src: "/images/packages/group-surf-package.svg",
+        src: "/images/packages/beginner-surfboards-taghazout.jpg",
         alt: "Comfortable accommodation mood for a group stay",
       },
     ],
     featuredImage: {
-      src: "/images/packages/group-surf-package.svg",
-      alt: "Surf travelers gathering by the water before a group session",
+      src: "/images/packages/group-surf-session.jpg",
+      alt: "Group of surfers waiting together for waves before a session",
     },
     available: true,
     bookingCtaText: "Request group quote",

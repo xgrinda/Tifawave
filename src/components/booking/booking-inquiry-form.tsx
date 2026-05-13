@@ -321,8 +321,8 @@ export function BookingInquiryForm({
             onChange={(event) => updateField("roomType", event.target.value)}
             className={fieldClass}
           >
-            {roomOptions.map((option) => (
-              <option key={option}>{option}</option>
+            {roomOptions.map((option, index) => (
+              <option key={`${option}-${index}`}>{option}</option>
             ))}
           </select>
         </Field>
@@ -336,8 +336,8 @@ export function BookingInquiryForm({
             }
             className={fieldClass}
           >
-            {packageOptions.map((option) => (
-              <option key={option}>{option}</option>
+            {packageOptions.map((option, index) => (
+              <option key={`${option}-${index}`}>{option}</option>
             ))}
           </select>
         </Field>

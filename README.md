@@ -378,6 +378,16 @@ The site is now prepared for real local property photography:
 
 Temporary SVG placeholders already live in those folders so the layout stays intact until final photos are ready.
 
+Real stock photos are included for non-hostel imagery:
+
+- Hero surf coastline: `public/images/hero/hero-atlantic-surf-morocco.jpg`
+- About/coast atmosphere: `public/images/about/about-morocco-surf-coast.jpg`
+- Surf package imagery: `public/images/packages/*.jpg`
+- Brand logo asset: `public/images/brand/tifawave-logo.svg`
+- Browser icon asset: `src/app/icon.svg`
+
+Room photos and main gallery/property photos are still placeholders on purpose. Replace those with real Tifawave hostel photos before launch so guests see the actual rooms, terrace, common areas, and property details they are booking.
+
 ### Where To Upload Real Photos
 
 - Hero homepage image: `public/images/hero`

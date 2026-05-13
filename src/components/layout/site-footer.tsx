@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Camera, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { navItems, siteContent as fallbackSiteContent } from "@/content/site";
 import type { Room, SiteContent, SurfPackage } from "@/content/types";
 import { toWhatsAppLink } from "@/lib/utils";
@@ -24,17 +25,7 @@ export function SiteFooter({
     <footer className="bg-[var(--ocean-deep)] text-white">
       <div className="container-shell grid gap-10 py-14 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
-          <Link href="/" className="inline-flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-white text-sm font-black uppercase text-[var(--ocean-deep)]">
-              Ti
-            </span>
-            <span>
-              <span className="block text-lg font-black">Tifawave</span>
-              <span className="block text-xs font-bold uppercase tracking-[0.22em] text-[var(--sand)]">
-                Surf Stay Tamraght
-              </span>
-            </span>
-          </Link>
+          <BrandLogo site={site} variant="dark" />
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/72">
             A premium surf hostel and curated surf stay for travelers who want
             Atlantic waves, warm Moroccan hosting, and a calmer kind of surf

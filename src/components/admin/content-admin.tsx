@@ -179,6 +179,13 @@ export function ContentAdmin({
   }
 
   async function saveAll() {
+    const duplicateMessage = getDuplicateIdentityMessage(section, items);
+
+    if (duplicateMessage) {
+      setNotice({ type: "error", message: duplicateMessage });
+      return;
+    }
+
     setBusyId("save-all");
     setNotice(null);
 
@@ -206,6 +213,13 @@ export function ContentAdmin({
   }
 
   async function saveItem(item: AdminContentItem, index: number) {
+    const duplicateMessage = getDuplicateIdentityMessage(section, items);
+
+    if (duplicateMessage) {
+      setNotice({ type: "error", message: duplicateMessage });
+      return;
+    }
+
     if (!seeded) {
       setNotice({
         type: "error",
@@ -799,7 +813,7 @@ function RoomEditor({ value, onChange }: { value: Room; onChange: (value: Room) 
   return (
     <div className="grid gap-4">
       <EditorPanel title="Room identity" description="Name, slug, visibility, price, and booking label.">
-        <Input label="Name" value={value.name} onChange={(name) => onChange({ ...value, name })} />
+        <Input label="Name" value={value.name} onChange={(name) => onChange(withGeneratedRoomIdentity(value, name))} />
         <Input label="ID" value={value.id} onChange={(id) => onChange({ ...value, id: slugify(id) })} />
         <Input label="Slug" value={value.slug} onChange={(slug) => onChange({ ...value, slug: slugify(slug) })} />
         <Input label="Price per night" value={String(value.pricePerNight)} onChange={(pricePerNight) => onChange({ ...value, pricePerNight: Number(pricePerNight) })} />
@@ -835,7 +849,7 @@ function PackageEditor({ value, onChange }: { value: SurfPackage; onChange: (val
   return (
     <div className="grid gap-4">
       <EditorPanel title="Package identity" description="Name, slug, visibility, price, duration, and CTA.">
-        <Input label="Name" value={value.name} onChange={(name) => onChange({ ...value, name })} />
+        <Input label="Name" value={value.name} onChange={(name) => onChange(withGeneratedPackageIdentity(value, name))} />
         <Input label="ID" value={value.id} onChange={(id) => onChange({ ...value, id: slugify(id) })} />
         <Input label="Slug" value={value.slug} onChange={(slug) => onChange({ ...value, slug: slugify(slug) })} />
         <Input label="Price" value={value.price} onChange={(price) => onChange({ ...value, price })} />
@@ -874,7 +888,16 @@ function GalleryEditor({ value, onChange }: { value: GalleryItem; onChange: (val
         image={value}
         section="gallery"
         allowCaption
-        onChange={(image) => onChange({ ...value, ...image })}
+        onChange={(image) =>
+          onChange({
+            ...value,
+            ...image,
+            id:
+              image.alt !== value.alt
+                ? slugFromText(image.alt, value.id)
+                : value.id,
+          })
+        }
       />
       <div className="grid gap-4 sm:grid-cols-2">
         <Input label="ID" value={value.id} onChange={(id) => onChange({ ...value, id: slugify(id) })} />
@@ -888,7 +911,7 @@ function FaqEditor({ value, onChange }: { value: Faq; onChange: (value: Faq) => 
   return (
     <EditorPanel title="FAQ" description="Question, answer, and where it appears.">
       <Input label="ID" value={value.id} onChange={(id) => onChange({ ...value, id: slugify(id) })} />
-      <Input label="Question" value={value.question} onChange={(question) => onChange({ ...value, question })} />
+      <Input label="Question" value={value.question} onChange={(question) => onChange({ ...value, question, id: slugFromText(question, value.id) })} />
       <Textarea label="Answer" value={value.answer} onChange={(answer) => onChange({ ...value, answer })} />
       <div className="grid gap-2">
         <p className="text-sm font-bold text-[var(--ocean-deep)]">Categories</p>
@@ -918,7 +941,7 @@ function TestimonialEditor({ value, onChange }: { value: Testimonial; onChange: 
   return (
     <EditorPanel title="Testimonial" description="Use real verified guest reviews before launch.">
       <Input label="ID" value={value.id} onChange={(id) => onChange({ ...value, id: slugify(id) })} />
-      <Input label="Display name" value={value.name} onChange={(name) => onChange({ ...value, name })} />
+      <Input label="Display name" value={value.name} onChange={(name) => onChange({ ...value, name, id: slugFromText(name, value.id) })} />
       <Input label="Detail" value={value.detail} onChange={(detail) => onChange({ ...value, detail })} />
       <Textarea label="Quote" value={value.quote} onChange={(quote) => onChange({ ...value, quote })} />
     </EditorPanel>
@@ -1226,7 +1249,7 @@ function Checkbox({ label, checked, onChange }: { label: string; checked: boolea
 }
 
 function createBlankPayload(section: ContentSection, count: number) {
-  const id = `new-${section}-${count}`;
+  const id = `new-${section}-${count}-${Date.now().toString(36)}`;
 
   switch (section) {
     case "rooms":
@@ -1243,7 +1266,7 @@ function createBlankPayload(section: ContentSection, count: number) {
         amenities: ["Fresh linens", "Wi-Fi"],
         images: [{ src: "/images/rooms/private-double-room.svg", alt: "Room photo placeholder" }],
         featuredImage: { src: "/images/rooms/private-double-room.svg", alt: "Room photo placeholder" },
-        available: true,
+        available: false,
         bookingCtaText: "Request this room",
       } satisfies Room;
     case "packages":
@@ -1259,7 +1282,7 @@ function createBlankPayload(section: ContentSection, count: number) {
         idealFor: ["Surf travelers"],
         images: [{ src: "/images/packages/surf-camp-package.svg", alt: "Surf package photo placeholder" }],
         featuredImage: { src: "/images/packages/surf-camp-package.svg", alt: "Surf package photo placeholder" },
-        available: true,
+        available: false,
         bookingCtaText: "Request package",
       } satisfies SurfPackage;
     case "gallery":
@@ -1276,7 +1299,12 @@ function createBlankPayload(section: ContentSection, count: number) {
 function clonePayload(section: ContentSection, payload: unknown) {
   const clone = JSON.parse(JSON.stringify(payload)) as Record<string, unknown>;
   const baseId = getPayloadId(clone);
-  const nextId = `${baseId}-copy-${Date.now().toString(36)}`;
+  const originalName = String(clone.name ?? baseId);
+  const nextName =
+    section === "rooms" || section === "packages"
+      ? `Copy of ${originalName}`
+      : originalName;
+  const nextId = `${slugFromText(nextName, baseId)}-${Date.now().toString(36)}`;
   clone.id = nextId;
 
   if ("slug" in clone) {
@@ -1284,7 +1312,8 @@ function clonePayload(section: ContentSection, payload: unknown) {
   }
 
   if (section === "rooms" || section === "packages") {
-    clone.name = `Copy of ${String(clone.name ?? "item")}`;
+    clone.name = nextName;
+    clone.available = false;
   }
 
   return clone;
@@ -1328,6 +1357,78 @@ function getItemSubtitle(section: ContentSection, payload: unknown) {
 
 function isPublishable(section: ContentSection, payload: unknown) {
   return (section === "rooms" || section === "packages") && Boolean(payload && typeof payload === "object" && "available" in payload);
+}
+
+function withGeneratedRoomIdentity(value: Room, name: string): Room {
+  const generated = slugFromText(name, value.id);
+
+  return {
+    ...value,
+    name,
+    id: generated,
+    slug: generated,
+  };
+}
+
+function withGeneratedPackageIdentity(
+  value: SurfPackage,
+  name: string,
+): SurfPackage {
+  const generated = slugFromText(name, value.id);
+
+  return {
+    ...value,
+    name,
+    id: generated,
+    slug: generated,
+  };
+}
+
+function slugFromText(value: string, fallback: string) {
+  return slugify(value) || fallback || "item";
+}
+
+function getDuplicateIdentityMessage(
+  section: ContentSection,
+  items: AdminContentItem[],
+) {
+  if (section === "settings") {
+    return null;
+  }
+
+  const ids = new Set<string>();
+  const slugs = new Set<string>();
+
+  for (const item of items) {
+    const payload = item.payload as Partial<Room & SurfPackage & GalleryItem & Faq & Testimonial>;
+    const id = typeof payload.id === "string" ? payload.id : "";
+
+    if (!id) {
+      return "Every content item needs an ID before saving.";
+    }
+
+    if (ids.has(id)) {
+      return `Duplicate ID "${id}". Change the name or ID before saving.`;
+    }
+
+    ids.add(id);
+
+    if (section === "rooms" || section === "packages") {
+      const slug = typeof payload.slug === "string" ? payload.slug : "";
+
+      if (!slug) {
+        return "Every room and package needs a slug before saving.";
+      }
+
+      if (slugs.has(slug)) {
+        return `Duplicate slug "${slug}". Change the name or slug before saving.`;
+      }
+
+      slugs.add(slug);
+    }
+  }
+
+  return null;
 }
 
 function arrayToLines(values: string[]) {

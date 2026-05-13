@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { BrandLogo } from "@/components/layout/brand-logo";
 import { navItems, siteContent as fallbackSiteContent } from "@/content/site";
 import type { SiteContent } from "@/content/types";
 import { cn, toWhatsAppLink } from "@/lib/utils";
@@ -25,23 +26,7 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/50 bg-[rgba(248,243,234,0.82)] backdrop-blur-xl">
       <div className="container-shell flex h-20 items-center justify-between gap-6">
-        <Link
-          href="/"
-          className="group flex items-center gap-3"
-          aria-label={`${site.name} home`}
-        >
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--ocean-deep)] text-sm font-black uppercase text-white shadow-lg shadow-[rgba(18,55,67,0.18)]">
-            Ti
-          </span>
-          <span className="leading-none">
-            <span className="block text-base font-black tracking-tight text-[var(--ocean-deep)]">
-              Tifawave
-            </span>
-            <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--terracotta)]">
-              Surf Stay
-            </span>
-          </span>
-        </Link>
+        <BrandLogo site={site} />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {navItems.map((item) => {
