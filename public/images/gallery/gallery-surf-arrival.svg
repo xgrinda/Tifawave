@@ -1,0 +1,6 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#B9DDE6"/>
+  <path d="M0 590C220 534 412 554 606 614C796 672 982 660 1200 602V900H0V590Z" fill="#1C6E86"/>
+  <path d="M0 720C228 666 414 694 612 752C808 808 988 794 1200 744V900H0V720Z" fill="#EEDCC1"/>
+  <text x="600" y="124" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Gallery placeholder: surf arrival</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#B9DDE6"/>
+  <path d="M0 540C178 512 340 530 512 578C704 632 934 622 1200 548V900H0V540Z" fill="#1C6E86"/>
+  <path d="M0 712C196 676 380 690 572 748C770 808 968 794 1200 728V900H0V712Z" fill="#EEDCC1"/>
+  <circle cx="470" cy="520" r="24" fill="#123743"/>
+  <circle cx="600" cy="496" r="24" fill="#123743"/>
+  <circle cx="730" cy="522" r="24" fill="#123743"/>
+  <rect x="440" y="546" width="60" height="132" rx="22" fill="#123743"/>
+  <rect x="570" y="522" width="60" height="156" rx="22" fill="#123743"/>
+  <rect x="700" y="548" width="60" height="130" rx="22" fill="#123743"/>
+  <text x="600" y="120" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Surf Camp Package</text>
+  <text x="600" y="824" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="22">Replace with your surf camp signature photo</text>
+</svg>

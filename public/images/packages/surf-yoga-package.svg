@@ -1,0 +1,9 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F2E5D0"/>
+  <rect x="162" y="186" width="876" height="528" rx="28" fill="#F8F3EA"/>
+  <circle cx="600" cy="390" r="78" fill="#1C6E86"/>
+  <path d="M470 594C500 512 552 470 600 470C648 470 700 512 730 594" stroke="#C98257" stroke-width="28" stroke-linecap="round"/>
+  <path d="M430 630H770" stroke="#123743" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="122" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Surf &amp; Yoga Package</text>
+  <text x="600" y="812" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="22">Replace with yoga, mobility, or retreat photography</text>
+</svg>

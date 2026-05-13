@@ -1,0 +1,11 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F2E5D0"/>
+  <rect x="112" y="154" width="976" height="592" rx="24" fill="#F8F3EA"/>
+  <rect x="224" y="294" width="752" height="296" rx="22" fill="#1C6E86"/>
+  <rect x="278" y="334" width="208" height="98" rx="14" fill="#EEDCC1"/>
+  <rect x="714" y="334" width="208" height="98" rx="14" fill="#EEDCC1"/>
+  <rect x="278" y="458" width="208" height="98" rx="14" fill="#D7B989"/>
+  <rect x="714" y="458" width="208" height="98" rx="14" fill="#D7B989"/>
+  <text x="600" y="108" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Family / Group Room</text>
+  <text x="600" y="804" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="22">Replace with your larger-room photograph</text>
+</svg>

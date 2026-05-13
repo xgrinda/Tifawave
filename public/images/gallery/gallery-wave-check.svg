@@ -1,0 +1,6 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#CFE7EC"/>
+  <path d="M0 610C164 544 330 548 486 620C646 694 834 708 1200 610V900H0V610Z" fill="#1C6E86"/>
+  <path d="M0 706C184 648 344 658 526 730C710 802 922 804 1200 726" stroke="#F8F3EA" stroke-width="18" stroke-linecap="round"/>
+  <text x="600" y="124" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Gallery placeholder: wave check</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#DCE8E8"/>
+  <circle cx="448" cy="432" r="30" fill="#123743"/>
+  <circle cx="600" cy="402" r="30" fill="#123743"/>
+  <circle cx="752" cy="432" r="30" fill="#123743"/>
+  <rect x="410" y="474" width="76" height="182" rx="24" fill="#123743"/>
+  <rect x="562" y="444" width="76" height="212" rx="24" fill="#123743"/>
+  <rect x="714" y="474" width="76" height="182" rx="24" fill="#123743"/>
+  <text x="600" y="124" text-anchor="middle" fill="#123743" font-family="Arial, sans-serif" font-size="42" font-weight="700">Gallery placeholder: group stay</text>
+</svg>
