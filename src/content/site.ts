@@ -44,6 +44,25 @@ export const siteContent = {
     latitude: 30.511,
     longitude: -9.681,
   },
+  theme: {
+    background: "#f8f3ea",
+    foreground: "#17313b",
+    ocean: "#0f5f7a",
+    oceanDeep: "#123743",
+    sand: "#e8d8bd",
+    sunset: "#f47a45",
+    terracotta: "#b95535",
+    foam: "#f5fbf8",
+    muted: "#6e7d7b",
+    borderSoft: "#dfe7e4",
+  },
+  uiText: {
+    bookingButton: "Book stay",
+    whatsappButton: "WhatsApp",
+    footerDescription:
+      "A premium surf hostel and curated surf stay for travelers who want Atlantic waves, warm Moroccan hosting, and a calmer kind of surf camp.",
+    footerNote: "Made for Atlantic mornings in Tamraght.",
+  },
   logoImage: {
     src: "/images/brand/tifawave-logo.svg",
     alt: "Tifawave Surf Stay logo",

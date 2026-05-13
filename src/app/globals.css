@@ -10,7 +10,7 @@
   --terracotta: #b95535;
   --foam: #f5fbf8;
   --muted: #6e7d7b;
-  --border-soft: rgba(23, 49, 59, 0.12);
+  --border-soft: #dfe7e4;
 }
 
 @theme inline {
@@ -40,7 +40,7 @@ body {
 }
 
 ::selection {
-  background: rgba(244, 122, 69, 0.24);
+  background: color-mix(in srgb, var(--sunset) 24%, transparent);
 }
 
 img {
@@ -91,9 +91,9 @@ a:focus-visible {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 22%),
-    radial-gradient(circle at 80% 60%, rgba(244, 122, 69, 0.08), transparent 28%);
+    radial-gradient(circle at 80% 60%, color-mix(in srgb, var(--sunset) 8%, transparent), transparent 28%);
 }
 
 .premium-shadow {
-  box-shadow: 0 22px 70px rgba(18, 55, 67, 0.1);
+  box-shadow: 0 22px 70px color-mix(in srgb, var(--ocean-deep) 10%, transparent);
 }

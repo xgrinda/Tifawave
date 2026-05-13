@@ -24,7 +24,7 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
   );
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/50 bg-[rgba(248,243,234,0.82)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/50 bg-[color-mix(in_srgb,var(--background)_82%,transparent)] backdrop-blur-xl">
       <div className="container-shell flex h-20 items-center justify-between gap-6">
         <BrandLogo site={site} />
 
@@ -56,13 +56,13 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
             {site.whatsapp.display}
           </a>
           <ButtonLink href="/booking" variant="secondary" className="min-w-32">
-            Book stay
+            {site.uiText.bookingButton}
           </ButtonLink>
         </div>
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-full border border-[rgba(23,49,59,0.14)] bg-white/75 text-[var(--ocean-deep)] lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-[var(--border-soft)] bg-white/75 text-[var(--ocean-deep)] lg:hidden"
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
@@ -78,7 +78,7 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.22 }}
-            className="border-t border-[rgba(23,49,59,0.1)] bg-[var(--background)] px-4 pb-5 pt-3 shadow-2xl shadow-[rgba(18,55,67,0.08)] lg:hidden"
+            className="border-t border-[var(--border-soft)] bg-[var(--background)] px-4 pb-5 pt-3 shadow-2xl shadow-[rgba(18,55,67,0.08)] lg:hidden"
           >
             <nav className="container-shell grid gap-2" aria-label="Mobile">
               {navItems.map((item) => (
@@ -96,10 +96,10 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[rgba(23,49,59,0.16)] bg-white/80 px-4 text-sm font-bold text-[var(--ocean-deep)]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[var(--border-soft)] bg-white/80 px-4 text-sm font-bold text-[var(--ocean-deep)]"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  WhatsApp
+                  {site.uiText.whatsappButton}
                 </a>
                 <ButtonLink
                   href="/booking"
@@ -107,7 +107,7 @@ export function SiteHeader({ site = fallbackSiteContent }: SiteHeaderProps) {
                   showArrow={false}
                   className="w-full"
                 >
-                  Book stay
+                  {site.uiText.bookingButton}
                 </ButtonLink>
               </div>
             </nav>

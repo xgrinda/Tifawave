@@ -196,7 +196,7 @@ export function BookingsAdmin({ initialBookings }: BookingsAdminProps) {
                       onChange={(event) =>
                         updateStatus(booking.id, event.target.value as BookingStatus)
                       }
-                      className="min-h-10 rounded-lg border border-[rgba(23,49,59,0.14)] bg-[var(--foam)] px-3 text-sm font-bold text-[var(--ocean-deep)]"
+                      className="min-h-10 rounded-lg border border-[var(--border-soft)] bg-[var(--foam)] px-3 text-sm font-bold text-[var(--ocean-deep)]"
                     >
                       {bookingStatuses.map((status) => (
                         <option key={status} value={status}>

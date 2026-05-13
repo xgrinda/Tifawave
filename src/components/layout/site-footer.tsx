@@ -27,9 +27,7 @@ export function SiteFooter({
         <div>
           <BrandLogo site={site} variant="dark" />
           <p className="mt-6 max-w-sm text-sm leading-7 text-white/72">
-            A premium surf hostel and curated surf stay for travelers who want
-            Atlantic waves, warm Moroccan hosting, and a calmer kind of surf
-            camp.
+            {site.uiText.footerDescription}
           </p>
           <div className="mt-6 flex items-center gap-3">
             <a
@@ -139,7 +137,7 @@ export function SiteFooter({
       <div className="border-t border-white/10">
         <div className="container-shell flex flex-col gap-3 pb-24 pt-5 text-xs text-white/56 sm:flex-row sm:items-center sm:justify-between sm:pb-5">
           <p>(c) {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <p>Made for Atlantic mornings in Tamraght.</p>
+          <p>{site.uiText.footerNote}</p>
         </div>
       </div>
     </footer>

@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="160" viewBox="0 0 560 160" role="img" aria-labelledby="title desc">
-  <title id="title">Tifawave Surf Stay logo</title>
-  <desc id="desc">Circular TI wave mark with Tifawave Surf Stay wordmark.</desc>
-  <rect width="560" height="160" rx="28" fill="#f8f3ea"/>
-  <circle cx="80" cy="80" r="48" fill="#123743"/>
-  <circle cx="80" cy="80" r="36" fill="none" stroke="#f8f3ea" stroke-opacity=".22" stroke-width="4"/>
-  <text x="80" y="76" fill="#f8f3ea" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="1.2" text-anchor="middle">TI</text>
-  <path d="M52 94c9-9 18-9 27 0 6.8 6.8 12 6.8 16 0" fill="none" stroke="#f8f3ea" stroke-linecap="round" stroke-width="6"/>
-  <path d="M99 57c5 2.5 8.9 6.4 11.6 11.4" fill="none" stroke="#f47a45" stroke-linecap="round" stroke-width="6"/>
-  <text x="150" y="74" fill="#123743" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900" letter-spacing="-1">Tifawave</text>
-  <text x="152" y="105" fill="#b95535" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" letter-spacing="8">SURF STAY</text>
-  <text x="153" y="130" fill="#6e7d7b" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2">TAMRAGHT, MOROCCO</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Tifawave circular brand mark</title>
+  <desc id="desc">Circular TI wave mark used beside the fixed Tifawave Surf Stay wordmark.</desc>
+  <circle cx="64" cy="64" r="64" fill="#123743"/>
+  <circle cx="64" cy="64" r="48" fill="none" stroke="#f8f3ea" stroke-opacity=".22" stroke-width="6"/>
+  <text x="64" y="62" fill="#f8f3ea" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="1.5" text-anchor="middle">TI</text>
+  <path d="M34 82c12-12 24-12 36 0 9 9 16 9 21 0" fill="none" stroke="#f8f3ea" stroke-linecap="round" stroke-width="9"/>
+  <path d="M90 36c7 4 12 9 16 16" fill="none" stroke="#f47a45" stroke-linecap="round" stroke-width="9"/>
 </svg>

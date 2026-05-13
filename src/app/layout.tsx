@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import "./globals.css";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -64,10 +65,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico" },
-    ],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
 };
 
@@ -87,7 +85,12 @@ export default async function RootLayout({
   const publishedPackages = surfPackages.filter((item) => item.available);
 
   return (
-    <html lang="en" data-scroll-behavior="smooth" className="h-full antialiased">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className="h-full antialiased"
+      style={buildThemeStyle(editableSiteContent.theme)}
+    >
       <body className="min-h-full bg-[var(--background)]">
         <SiteHeader site={editableSiteContent} />
         <main>{children}</main>
@@ -108,4 +111,19 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+function buildThemeStyle(theme: Awaited<ReturnType<typeof getSiteContent>>["theme"]) {
+  return {
+    "--background": theme.background,
+    "--foreground": theme.foreground,
+    "--ocean": theme.ocean,
+    "--ocean-deep": theme.oceanDeep,
+    "--sand": theme.sand,
+    "--sunset": theme.sunset,
+    "--terracotta": theme.terracotta,
+    "--foam": theme.foam,
+    "--muted": theme.muted,
+    "--border-soft": theme.borderSoft,
+  } as CSSProperties;
 }

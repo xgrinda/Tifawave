@@ -761,12 +761,25 @@ function SettingsEditor({
         <Textarea label="Tagline" value={value.tagline} onChange={(tagline) => onChange({ ...value, tagline })} />
         <div className="md:col-span-2">
           <ImageManager
-            title="Website logo"
+            title="Logo circle mark"
             image={value.logoImage}
             section="branding"
             onChange={(logoImage) => onChange({ ...value, logoImage })}
           />
         </div>
+      </EditorPanel>
+
+      <EditorPanel title="Theme colors" description="Site-wide brand, surface, and text colors used across public pages and admin.">
+        <ColorInput label="Page background" value={value.theme.background} onChange={(background) => onChange({ ...value, theme: { ...value.theme, background } })} />
+        <ColorInput label="Main text" value={value.theme.foreground} onChange={(foreground) => onChange({ ...value, theme: { ...value.theme, foreground } })} />
+        <ColorInput label="Ocean accent" value={value.theme.ocean} onChange={(ocean) => onChange({ ...value, theme: { ...value.theme, ocean } })} />
+        <ColorInput label="Deep ocean" value={value.theme.oceanDeep} onChange={(oceanDeep) => onChange({ ...value, theme: { ...value.theme, oceanDeep } })} />
+        <ColorInput label="Sand" value={value.theme.sand} onChange={(sand) => onChange({ ...value, theme: { ...value.theme, sand } })} />
+        <ColorInput label="Sunset CTA" value={value.theme.sunset} onChange={(sunset) => onChange({ ...value, theme: { ...value.theme, sunset } })} />
+        <ColorInput label="Terracotta accent" value={value.theme.terracotta} onChange={(terracotta) => onChange({ ...value, theme: { ...value.theme, terracotta } })} />
+        <ColorInput label="Soft surface" value={value.theme.foam} onChange={(foam) => onChange({ ...value, theme: { ...value.theme, foam } })} />
+        <ColorInput label="Muted text" value={value.theme.muted} onChange={(muted) => onChange({ ...value, theme: { ...value.theme, muted } })} />
+        <ColorInput label="Soft borders" value={value.theme.borderSoft} onChange={(borderSoft) => onChange({ ...value, theme: { ...value.theme, borderSoft } })} />
       </EditorPanel>
 
       <EditorPanel title="Contact" description="Guest-facing email, WhatsApp, address, and maps.">
@@ -796,6 +809,13 @@ function SettingsEditor({
             onChange={(heroImage) => onChange({ ...value, heroImage })}
           />
         </div>
+      </EditorPanel>
+
+      <EditorPanel title="Global labels" description="Reusable interface copy shown in navigation, floating contact, and the footer.">
+        <Input label="Booking button label" value={value.uiText.bookingButton} onChange={(bookingButton) => onChange({ ...value, uiText: { ...value.uiText, bookingButton } })} />
+        <Input label="WhatsApp button label" value={value.uiText.whatsappButton} onChange={(whatsappButton) => onChange({ ...value, uiText: { ...value.uiText, whatsappButton } })} />
+        <Textarea label="Footer description" value={value.uiText.footerDescription} onChange={(footerDescription) => onChange({ ...value, uiText: { ...value.uiText, footerDescription } })} />
+        <Textarea label="Footer note" value={value.uiText.footerNote} onChange={(footerNote) => onChange({ ...value, uiText: { ...value.uiText, footerNote } })} />
       </EditorPanel>
 
       <EditorPanel title="SEO" description="Search metadata and social profile links.">
@@ -1224,6 +1244,40 @@ function Input({ label, value, onChange }: { label: string; value: string; onCha
   );
 }
 
+function ColorInput({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  const pickerValue = isHexColor(value) ? value : "#000000";
+
+  return (
+    <label className="grid gap-2">
+      <span className="text-sm font-bold text-[var(--ocean-deep)]">{label}</span>
+      <span className="flex min-h-11 items-center gap-3 rounded-lg border border-[var(--border-soft)] bg-white px-3">
+        <input
+          type="color"
+          value={pickerValue}
+          onChange={(event) => onChange(event.target.value)}
+          className="h-8 w-10 shrink-0 cursor-pointer rounded border border-[var(--border-soft)] bg-transparent p-0"
+          aria-label={`${label} picker`}
+        />
+        <input
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          className="min-w-0 flex-1 bg-transparent text-sm font-semibold uppercase text-[var(--ocean-deep)] outline-none"
+          placeholder="#123743"
+          spellCheck={false}
+        />
+      </span>
+    </label>
+  );
+}
+
 function Select({ label, value, options, onChange }: { label: string; value: string; options: string[]; onChange: (value: string) => void }) {
   return (
     <label className="grid gap-2">
@@ -1470,11 +1524,15 @@ function slugify(value: string) {
   return value.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
+function isHexColor(value: string) {
+  return /^#[0-9a-fA-F]{6}$/.test(value);
+}
+
 function serializeItems(items: AdminContentItem[]) {
   return JSON.stringify(items.map((item, index) => ({ payload: item.payload, position: index })));
 }
 
-const fieldClass = "min-h-11 w-full rounded-lg border border-[rgba(23,49,59,0.14)] bg-white px-4 text-sm text-[var(--ocean-deep)] outline-none transition placeholder:text-[rgba(23,49,59,0.38)] focus:border-[var(--sunset)] focus:bg-white";
+const fieldClass = "min-h-11 w-full rounded-lg border border-[var(--border-soft)] bg-white px-4 text-sm text-[var(--ocean-deep)] outline-none transition placeholder:text-[rgba(23,49,59,0.38)] focus:border-[var(--sunset)] focus:bg-white";
 const pillClass = "inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white px-5 text-sm font-bold text-[var(--ocean-deep)] transition hover:bg-[var(--background)]";
 const primaryButtonClass = "inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[var(--ocean-deep)] px-5 text-sm font-bold text-white transition hover:bg-[var(--ocean)] disabled:cursor-not-allowed disabled:opacity-60";
 const secondaryButtonClass = "inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-[var(--border-soft)] bg-white px-4 text-sm font-bold text-[var(--ocean-deep)] transition hover:bg-[var(--foam)] disabled:cursor-not-allowed disabled:opacity-50";

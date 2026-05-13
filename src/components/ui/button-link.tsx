@@ -18,7 +18,7 @@ const variants = {
   secondary:
     "bg-[var(--sunset)] text-white shadow-[0_18px_50px_rgba(244,122,69,0.28)] hover:bg-[var(--terracotta)]",
   outline:
-    "border border-[rgba(23,49,59,0.18)] bg-white/78 text-[var(--ocean-deep)] backdrop-blur hover:bg-white",
+    "border border-[var(--border-soft)] bg-white/78 text-[var(--ocean-deep)] backdrop-blur hover:bg-white",
   ghost: "text-[var(--ocean-deep)] hover:bg-white/60",
 };
 

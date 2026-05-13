@@ -169,7 +169,8 @@ First-time CMS setup:
 Content editing notes:
 
 - Room and package image paths should point to files under `public/images`.
-- The Settings editor can upload or replace the public website logo without code changes.
+- The Settings editor can upload or replace the circular logo mark without changing the fixed Tifawave wordmark text.
+- The Settings editor controls the live brand palette, global booking/WhatsApp button labels, footer messaging, contact details, homepage hero, SEO, and policies.
 - Admin image uploads go to Supabase Storage and automatically insert the public URL into the image field.
 - Uploads accept JPG, PNG, WebP, and AVIF images up to 8 MB.
 - Drag images onto an image field or use **Upload or replace**.
@@ -348,6 +349,8 @@ Open `src/content/site.ts` and edit:
 
 - `email`
 - `logoImage`
+- `theme`
+- `uiText`
 - `whatsapp.display`
 - `whatsapp.e164`
 - `whatsapp.defaultMessage`

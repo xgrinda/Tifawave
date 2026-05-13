@@ -55,7 +55,7 @@ export default async function AdminLoginPage({
                 name="email"
                 autoComplete="email"
                 required
-                className="min-h-12 rounded-lg border border-[rgba(23,49,59,0.14)] bg-[var(--foam)] px-4 text-sm outline-none focus:border-[var(--sunset)] focus:bg-white"
+                className="min-h-12 rounded-lg border border-[var(--border-soft)] bg-[var(--foam)] px-4 text-sm outline-none focus:border-[var(--sunset)] focus:bg-white"
               />
             </label>
             <label className="grid gap-2">
@@ -67,7 +67,7 @@ export default async function AdminLoginPage({
                 name="password"
                 autoComplete="current-password"
                 required
-                className="min-h-12 rounded-lg border border-[rgba(23,49,59,0.14)] bg-[var(--foam)] px-4 text-sm outline-none focus:border-[var(--sunset)] focus:bg-white"
+                className="min-h-12 rounded-lg border border-[var(--border-soft)] bg-[var(--foam)] px-4 text-sm outline-none focus:border-[var(--sunset)] focus:bg-white"
               />
             </label>
             <button

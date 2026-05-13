@@ -71,6 +71,14 @@ export async function getSiteContent() {
       ...fallbackSiteContent.coordinates,
       ...editable.coordinates,
     },
+    theme: {
+      ...fallbackSiteContent.theme,
+      ...editable.theme,
+    },
+    uiText: {
+      ...fallbackSiteContent.uiText,
+      ...editable.uiText,
+    },
     logoImage: {
       ...fallbackSiteContent.logoImage,
       ...editable.logoImage,

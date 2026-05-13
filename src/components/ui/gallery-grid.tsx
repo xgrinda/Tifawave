@@ -20,7 +20,7 @@ export function GalleryGrid({ images, limit }: GalleryGridProps) {
         <div
           key={`${image.src}-${index}`}
           className={cn(
-            "group relative overflow-hidden rounded-lg bg-[var(--sand)] ring-1 ring-[rgba(23,49,59,0.08)]",
+            "group relative overflow-hidden rounded-lg bg-[var(--sand)] ring-1 ring-[var(--border-soft)]",
             index === 0 && "sm:col-span-2 sm:row-span-2",
             index === 3 && "lg:row-span-2",
           )}

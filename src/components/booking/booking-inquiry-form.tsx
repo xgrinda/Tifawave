@@ -497,4 +497,4 @@ function Field({
 }
 
 const fieldClass =
-  "min-h-12 w-full rounded-lg border border-[rgba(23,49,59,0.14)] bg-[var(--foam)] px-4 text-sm outline-none transition placeholder:text-[rgba(23,49,59,0.38)] focus:border-[var(--sunset)] focus:bg-white";
+  "min-h-12 w-full rounded-lg border border-[var(--border-soft)] bg-[var(--foam)] px-4 text-sm outline-none transition placeholder:text-[rgba(23,49,59,0.38)] focus:border-[var(--sunset)] focus:bg-white";

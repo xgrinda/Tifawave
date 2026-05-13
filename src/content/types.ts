@@ -58,6 +58,26 @@ export type GalleryItem = ContentImage & {
   category: "surf" | "rooms" | "hostel" | "wellness" | "tamraght";
 };
 
+export type SiteTheme = {
+  background: string;
+  foreground: string;
+  ocean: string;
+  oceanDeep: string;
+  sand: string;
+  sunset: string;
+  terracotta: string;
+  foam: string;
+  muted: string;
+  borderSoft: string;
+};
+
+export type SiteUiText = {
+  bookingButton: string;
+  whatsappButton: string;
+  footerDescription: string;
+  footerNote: string;
+};
+
 export type SiteContent = {
   name: string;
   shortName: string;
@@ -87,6 +107,8 @@ export type SiteContent = {
     latitude: number;
     longitude: number;
   };
+  theme: SiteTheme;
+  uiText: SiteUiText;
   logoImage: ContentImage;
   heroImage: ContentImage;
   policies: {

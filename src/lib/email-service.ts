@@ -19,8 +19,8 @@ type EmailDeliveryResult =
     };
 
 export function buildBookingEmail(inquiry: StoredBookingInquiry): BookingEmail {
-  const to = process.env.BOOKING_RECIPIENT_EMAIL;
-  const from = process.env.BOOKING_EMAIL_FROM;
+  const to = cleanEnvEmailValue(process.env.BOOKING_RECIPIENT_EMAIL);
+  const from = cleanEnvEmailValue(process.env.BOOKING_EMAIL_FROM);
   const subject = `Booking inquiry: ${inquiry.name} for ${inquiry.checkIn}`;
   const text = [
     "New Tifawave booking inquiry",
@@ -194,4 +194,21 @@ function escapeHtml(value: string) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function cleanEnvEmailValue(value?: string) {
+  const trimmed = value?.trim();
+
+  if (!trimmed) {
+    return "";
+  }
+
+  const startsWithDoubleQuote = trimmed.startsWith('"') && trimmed.endsWith('"');
+  const startsWithSingleQuote = trimmed.startsWith("'") && trimmed.endsWith("'");
+
+  if (startsWithDoubleQuote || startsWithSingleQuote) {
+    return trimmed.slice(1, -1).trim();
+  }
+
+  return trimmed;
 }

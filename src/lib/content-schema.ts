@@ -21,6 +21,13 @@ const slugSchema = z
     message: "Use lowercase letters, numbers, and hyphens only.",
   });
 
+const hexColorSchema = z
+  .string()
+  .trim()
+  .regex(/^#[0-9a-fA-F]{6}$/, {
+    message: "Use a six-digit hex color such as #123743.",
+  });
+
 export const contentImageSchema = z.object({
   src: z.string().trim().min(1),
   alt: z.string().trim().min(3),
@@ -110,6 +117,47 @@ export const editableSiteContentSchema = z.object({
     latitude: z.coerce.number(),
     longitude: z.coerce.number(),
   }),
+  theme: z
+    .object({
+      background: hexColorSchema,
+      foreground: hexColorSchema,
+      ocean: hexColorSchema,
+      oceanDeep: hexColorSchema,
+      sand: hexColorSchema,
+      sunset: hexColorSchema,
+      terracotta: hexColorSchema,
+      foam: hexColorSchema,
+      muted: hexColorSchema,
+      borderSoft: hexColorSchema,
+    })
+    .optional()
+    .default({
+      background: "#f8f3ea",
+      foreground: "#17313b",
+      ocean: "#0f5f7a",
+      oceanDeep: "#123743",
+      sand: "#e8d8bd",
+      sunset: "#f47a45",
+      terracotta: "#b95535",
+      foam: "#f5fbf8",
+      muted: "#6e7d7b",
+      borderSoft: "#dfe7e4",
+    }),
+  uiText: z
+    .object({
+      bookingButton: z.string().trim().min(2),
+      whatsappButton: z.string().trim().min(2),
+      footerDescription: z.string().trim().min(20),
+      footerNote: z.string().trim().min(8),
+    })
+    .optional()
+    .default({
+      bookingButton: "Book stay",
+      whatsappButton: "WhatsApp",
+      footerDescription:
+        "A premium surf hostel and curated surf stay for travelers who want Atlantic waves, warm Moroccan hosting, and a calmer kind of surf camp.",
+      footerNote: "Made for Atlantic mornings in Tamraght.",
+    }),
   logoImage: contentImageSchema.optional().default({
     src: "/images/brand/tifawave-logo.svg",
     alt: "Tifawave Surf Stay logo",
