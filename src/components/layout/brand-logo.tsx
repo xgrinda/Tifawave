@@ -26,28 +26,8 @@ export function BrandLogo({
       className={cn("group inline-flex items-center gap-3", className)}
       aria-label={`${site.name} home`}
     >
-      {site.logoImage.src ? (
-        <span
-          className={cn(
-            "relative block h-12 overflow-hidden rounded-md",
-            compact ? "w-12" : "w-[176px]",
-            dark && "bg-white/96 shadow-sm shadow-black/10",
-          )}
-        >
-          <ResilientImage
-            src={site.logoImage.src}
-            alt={site.logoImage.alt}
-            fill
-            sizes={compact ? "48px" : "176px"}
-            className="object-contain"
-            containerClassName="rounded-md"
-            fallbackLabel="Logo"
-          />
-        </span>
-      ) : (
-        <BrandMark variant={variant} />
-      )}
-      {!compact && !site.logoImage.src ? (
+      <BrandMark variant={variant} image={site.logoImage} />
+      {!compact ? (
         <span className="leading-none">
           <span
             className={cn(
@@ -71,7 +51,13 @@ export function BrandLogo({
   );
 }
 
-function BrandMark({ variant }: { variant: "light" | "dark" }) {
+function BrandMark({
+  variant,
+  image,
+}: {
+  variant: "light" | "dark";
+  image: SiteContent["logoImage"];
+}) {
   const dark = variant === "dark";
 
   return (
@@ -83,7 +69,19 @@ function BrandMark({ variant }: { variant: "light" | "dark" }) {
           : "bg-[var(--ocean-deep)] text-white shadow-[rgba(18,55,67,0.18)]",
       )}
     >
-      <FallbackBrandMark dark={dark} />
+      {image.src ? (
+        <ResilientImage
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="44px"
+          className="object-cover"
+          containerClassName="rounded-full"
+          fallbackLabel="Logo"
+        />
+      ) : (
+        <FallbackBrandMark dark={dark} />
+      )}
     </span>
   );
 }
