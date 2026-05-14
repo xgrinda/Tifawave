@@ -767,6 +767,14 @@ function SettingsEditor({
             onChange={(logoImage) => onChange({ ...value, logoImage })}
           />
         </div>
+        <div className="md:col-span-2">
+          <ImageManager
+            title="Browser tab icon"
+            image={value.faviconImage}
+            section="branding"
+            onChange={(faviconImage) => onChange({ ...value, faviconImage })}
+          />
+        </div>
       </EditorPanel>
 
       <EditorPanel title="Theme colors" description="Site-wide brand, surface, and text colors used across public pages and admin.">

@@ -4,7 +4,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { WhatsAppFloating } from "@/components/layout/whatsapp-floating";
-import { siteContent } from "@/content/site";
+import type { SiteContent } from "@/content/types";
 import {
   getRooms,
   getSiteContent,
@@ -17,57 +17,68 @@ import {
   siteUrl,
 } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  applicationName: siteContent.name,
-  creator: siteContent.name,
-  publisher: siteContent.name,
-  title: {
-    default: `${siteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
-    template: `%s | ${siteContent.name}`,
-  },
-  description: siteContent.description,
-  keywords: [...siteContent.seoKeywords],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata(): Promise<Metadata> {
+  const editableSiteContent = await getSiteContent();
+  const favicon = editableSiteContent.faviconImage;
+
+  return {
+    metadataBase: new URL(siteUrl),
+    applicationName: editableSiteContent.name,
+    creator: editableSiteContent.name,
+    publisher: editableSiteContent.name,
+    title: {
+      default: `${editableSiteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
+      template: `%s | ${editableSiteContent.name}`,
+    },
+    description: editableSiteContent.description,
+    keywords: [...editableSiteContent.seoKeywords],
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  openGraph: {
-    title: `${siteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
-    description: siteContent.description,
-    url: siteUrl,
-    siteName: siteContent.name,
-    images: [
-      {
-        url: absoluteUrl(siteContent.heroImage.src),
-        width: 1600,
-        height: 1000,
-        alt: siteContent.heroImage.alt,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
       },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
-    description: siteContent.description,
-    images: [absoluteUrl(siteContent.heroImage.src)],
-  },
-  alternates: {
-    canonical: siteUrl,
-  },
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-  },
-};
+    },
+    openGraph: {
+      title: `${editableSiteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
+      description: editableSiteContent.description,
+      url: siteUrl,
+      siteName: editableSiteContent.name,
+      images: [
+        {
+          url: absoluteUrl(editableSiteContent.heroImage.src),
+          width: 1600,
+          height: 1000,
+          alt: editableSiteContent.heroImage.alt,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${editableSiteContent.name} | Surf Hostel Tamraght & Surf Camp Morocco`,
+      description: editableSiteContent.description,
+      images: [absoluteUrl(editableSiteContent.heroImage.src)],
+    },
+    alternates: {
+      canonical: siteUrl,
+    },
+    icons: {
+      icon: [
+        {
+          url: favicon.src,
+          type: getIconContentType(favicon.src),
+        },
+      ],
+      shortcut: [{ url: favicon.src }],
+    },
+  };
+}
 
 export const dynamic = "force-dynamic";
 
@@ -113,7 +124,7 @@ export default async function RootLayout({
   );
 }
 
-function buildThemeStyle(theme: Awaited<ReturnType<typeof getSiteContent>>["theme"]) {
+function buildThemeStyle(theme: SiteContent["theme"]) {
   return {
     "--background": theme.background,
     "--foreground": theme.foreground,
@@ -126,4 +137,30 @@ function buildThemeStyle(theme: Awaited<ReturnType<typeof getSiteContent>>["them
     "--muted": theme.muted,
     "--border-soft": theme.borderSoft,
   } as CSSProperties;
+}
+
+function getIconContentType(src: string) {
+  const cleanSrc = src.split("?")[0]?.toLowerCase() ?? "";
+
+  if (cleanSrc.endsWith(".svg")) {
+    return "image/svg+xml";
+  }
+
+  if (cleanSrc.endsWith(".png")) {
+    return "image/png";
+  }
+
+  if (cleanSrc.endsWith(".jpg") || cleanSrc.endsWith(".jpeg")) {
+    return "image/jpeg";
+  }
+
+  if (cleanSrc.endsWith(".webp")) {
+    return "image/webp";
+  }
+
+  if (cleanSrc.endsWith(".ico")) {
+    return "image/x-icon";
+  }
+
+  return "image/png";
 }

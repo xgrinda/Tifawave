@@ -162,6 +162,10 @@ export const editableSiteContentSchema = z.object({
     src: "/images/brand/tifawave-logo.svg",
     alt: "Tifawave Surf Stay logo",
   }),
+  faviconImage: contentImageSchema.optional().default({
+    src: "/images/brand/tifawave-logo.svg",
+    alt: "Tifawave browser tab icon",
+  }),
   heroImage: contentImageSchema,
   policies: z
     .array(

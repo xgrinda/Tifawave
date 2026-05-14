@@ -67,6 +67,10 @@ export const siteContent = {
     src: "/images/brand/tifawave-logo.svg",
     alt: "Tifawave Surf Stay logo",
   },
+  faviconImage: {
+    src: "/images/brand/tifawave-logo.svg",
+    alt: "Tifawave browser tab icon",
+  },
   heroImage: {
     src: "/images/hero/hero-atlantic-surf-morocco.jpg",
     alt: "Surfers walking toward Atlantic waves near Tamraght",

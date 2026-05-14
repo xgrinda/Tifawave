@@ -349,6 +349,7 @@ Open `src/content/site.ts` and edit:
 
 - `email`
 - `logoImage`
+- `faviconImage`
 - `theme`
 - `uiText`
 - `whatsapp.display`
@@ -389,7 +390,7 @@ Real stock photos are included for non-hostel imagery:
 - About/coast atmosphere: `public/images/about/about-morocco-surf-coast.jpg`
 - Surf package imagery: `public/images/packages/*.jpg`
 - Brand logo asset: `public/images/brand/tifawave-logo.svg`
-- Browser icon asset: `src/app/icon.svg`
+- Browser tab icon: edit `faviconImage` in code or upload a square PNG/SVG in Settings > Branding.
 
 Room photos and main gallery/property photos are still placeholders on purpose. Replace those with real Tifawave hostel photos before launch so guests see the actual rooms, terrace, common areas, and property details they are booking.
 

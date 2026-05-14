@@ -110,6 +110,7 @@ export type SiteContent = {
   theme: SiteTheme;
   uiText: SiteUiText;
   logoImage: ContentImage;
+  faviconImage: ContentImage;
   heroImage: ContentImage;
   policies: {
     title: string;

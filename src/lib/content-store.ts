@@ -83,6 +83,10 @@ export async function getSiteContent() {
       ...fallbackSiteContent.logoImage,
       ...editable.logoImage,
     },
+    faviconImage: {
+      ...fallbackSiteContent.faviconImage,
+      ...editable.faviconImage,
+    },
     heroImage: {
       ...fallbackSiteContent.heroImage,
       ...editable.heroImage,

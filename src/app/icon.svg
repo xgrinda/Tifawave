@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="32" fill="#123743"/>
-  <circle cx="64" cy="64" r="46" fill="none" stroke="#f8f3ea" stroke-opacity=".22" stroke-width="6"/>
-  <text x="64" y="62" fill="#f8f3ea" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="1.5" text-anchor="middle">TI</text>
-  <path d="M34 82c12-12 24-12 36 0 9 9 16 9 21 0" fill="none" stroke="#f8f3ea" stroke-linecap="round" stroke-width="9"/>
-  <path d="M90 36c7 4 12 9 16 16" fill="none" stroke="#f47a45" stroke-linecap="round" stroke-width="9"/>
-</svg>
